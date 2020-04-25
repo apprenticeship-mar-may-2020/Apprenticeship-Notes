@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>user-stories.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h5 id="user-stories">User stories</h5>
+<p>https://app.pluralsight.com/player?course=creating-effective-user-stories&amp;author=jeremy-jarrell&amp;name=creating-effective-user-stories-m1&amp;clip=0&amp;mode=live</p>
+<p>#### Allow design to last possible requirement</p>
+<ul>
+<li>not detailed requirements</li>
+<li>defer design to the last possible moment</li>
+<li>designed to be flexible</li>
+<li>placeholder for conversation</li>
+<li>Traditional = the system shall...</li>
+</ul>
+<h5 id="the-story-format">The Story Format:</h5>
+<p><img src="https://user-images.githubusercontent.com/27693622/79874344-22530300-83e0-11ea-82d9-b6db04756370.png" alt="Screenshot 2020-04-21 at 14 54 44"></p>
+<h5 id="this-is-better-user-stories-course">This is better user stories course:</h5>
+<p>https://betteruserstories.com/courses/better-user-stories/videos?video_id=1</p>
+<ul>
+<li>  - Software by numbers</li>
+<li>Start with significant object to achieve in 4 weeks</li>
+<li>Successful story writing workshop - involves whole team</li>
+<li>Visualise stories</li>
+<li>Story map -
+====&gt; sequence
+login -&gt; start new blank expense repoert -&gt; enter expenses -&gt; submit for approval</li>
+</ul>
+<p>alternatives down</p>
+<p><img src="https://user-images.githubusercontent.com/27693622/79880864-7530b880-83e8-11ea-8dfd-4d83b81f36b6.png" alt="Screenshot 2020-04-21 at 15 52 12"></p>
+<p><img src="https://user-images.githubusercontent.com/27693622/79880934-88dc1f00-83e8-11ea-9ee1-da8b223da64e.png" alt="Screenshot 2020-04-21 at 15 55 23"></p>
+<p><img src="https://user-images.githubusercontent.com/27693622/79881621-5979e200-83e9-11ea-83ad-b5d919f7a463.png" alt="Screenshot 2020-04-21 at 15 52 12"></p>
+<p><img src="https://user-images.githubusercontent.com/27693622/79881016-a1e4d000-83e8-11ea-8066-bab6f538dafa.png" alt="Screenshot 2020-04-21 at 15 55 41"></p>
+<p><img src="https://user-images.githubusercontent.com/27693622/79881393-06a02a80-83e9-11ea-9d4d-7736b54a2010.png" alt="Screenshot 2020-04-21 at 15 56 35"></p>
+<p><img src="https://user-images.githubusercontent.com/27693622/79881128-c04acb80-83e8-11ea-949b-5dcaa17f101e.png" alt="Screenshot 2020-04-21 at 15 56 59"></p>
+<p><img src="https://user-images.githubusercontent.com/27693622/79881504-30595180-83e9-11ea-8570-7ad320afe71d.png" alt="Screenshot 2020-04-21 at 15 59 14"></p>
+<h5 id="five-ways-to-split-stories">Five ways to split stories</h5>
+<p><img src="https://user-images.githubusercontent.com/27693622/79882349-592e1680-83ea-11ea-82d2-bb97365e8d0f.png" alt="Screenshot 2020-04-21 at 16 08 26"></p>
+<p><img src="https://user-images.githubusercontent.com/27693622/79882261-369bfd80-83ea-11ea-8d64-8e729c934a18.png" alt="Screenshot 2020-04-21 at 16 07 26"></p>
+<p>Format for user stories:
+<img src="https://user-images.githubusercontent.com/27693622/79887200-40296380-83f2-11ea-99ba-0343fbc49576.png" alt="Screenshot 2020-04-21 at 17 00 35"></p>
+<h5 id="use-case-versus-user-stories">Use case versus user stories:</h5>
+<p><img src="https://user-images.githubusercontent.com/27693622/79890273-2a6a6d00-83f7-11ea-9637-a43995419727.png" alt="Screenshot 2020-04-21 at 17 39 49"></p>
+<p><img src="https://user-images.githubusercontent.com/27693622/79890350-4706a500-83f7-11ea-90bb-e25d0b2fe088.png" alt="Screenshot 2020-04-21 at 17 40 55"></p>
+<p><img src="https://user-images.githubusercontent.com/27693622/79890836-f8a5d600-83f7-11ea-90f4-a45aa4540123.png" alt="Screenshot 2020-04-21 at 17 45 47"></p>
+<img width="847" alt="Screenshot 2020-04-21 at 17 49 19" src="https://user-images.githubusercontent.com/27693622/79891123-7669e180-83f8-11ea-8168-2a004d8118f1.png">
+<h5 id="this-is-an-example-user-role-sheet">This is an example User role sheet:</h5>
+<p><img src="https://user-images.githubusercontent.com/27693622/79891923-96e66b80-83f9-11ea-8358-344f79227c14.png" alt="Screenshot 2020-04-21 at 17 57 31"></p>
+<h5 id="this-is-an-example-of-decorated-user-stories">This is an example of decorated user stories:</h5>
+<p><img src="https://user-images.githubusercontent.com/27693622/79894379-453fe000-83fd-11ea-9901-fccb08b956aa.png" alt="Screenshot 2020-04-21 at 18 22 58"></p>
+<h5 id="this-is-the-example-given-regarding-user-story-mapping">This is the example given regarding user story mapping:</h5>
+<p><img src="https://user-images.githubusercontent.com/27693622/79894452-61dc1800-83fd-11ea-841c-a379c4b2954f.png" alt="Screenshot 2020-04-21 at 12 55 54"></p>
+<h5 id="this-is-an-example-of-the-feature-and-keywords-for-gherkin-testing">This is an example of the Feature and Keywords for Gherkin testing:</h5>
+<p><img src="https://user-images.githubusercontent.com/27693622/79894518-7a4c3280-83fd-11ea-9d85-ff13d3c55076.png" alt="Screenshot 2020-04-21 at 13 07 09"></p>
+<h5 id="this-is-the-user-stories-that-jose-gave">This is the user stories that Jose gave:</h5>
+<img width="1306" alt="Screenshot 2020-04-21 at 11 27 04" src="https://user-images.githubusercontent.com/27693622/79894563-8d5f0280-83fd-11ea-8cd3-1b02e94e1454.png">
+<h5 id="here-are-some-user-stories-on-bookingcom">Here are some user stories on Booking.com:</h5>
+<p>based on:
+https://www.booking.com/index.en-gb.html?label=gen173nr-1FCAEoggI46AdIM1gEaFCIAQGYAQm4AQfIAQzYAQHoAQH4AQuIAgGoAgO4AuKI-_QFwAIB&amp;srpvid=8f3a9ac766050069&amp;click_from_logo=1</p>
+<p><img src="https://user-images.githubusercontent.com/27693622/79918651-c52d7080-8424-11ea-8849-fc9b87385971.png" alt="image"></p>
+<p>This was Jose's triangle of inputs for a project:</p>
+<img width="652" alt="Screenshot 2020-04-21 at 12 37 46" src="https://user-images.githubusercontent.com/27693622/79919169-c14e1e00-8425-11ea-8bd4-72b439a187de.png">
+<h5 id="this-is-spidr-for-splitting-user-stories-where-necessary">This is SPIDR for splitting user stories where necessary:</h5>
+<p><img src="https://user-images.githubusercontent.com/27693622/79919275-f5c1da00-8425-11ea-8c3a-4b3db211a51a.png" alt="Screenshot 2020-04-21 at 11 18 57"></p>
+<h6 id="this-is-the-difference-between-iterative-and-incremental-development">This is the difference between iterative and incremental development:</h6>
+<img width="631" alt="Screenshot 2020-04-21 at 10 33 39" src="https://user-images.githubusercontent.com/27693622/79919331-125e1200-8426-11ea-89cd-ff0a166faba6.png">
+<p><img src="https://user-images.githubusercontent.com/27693622/79921168-95349c00-8429-11ea-838f-6cc471f2bb44.png" alt="image"></p>
+
+</body>
+</html>
